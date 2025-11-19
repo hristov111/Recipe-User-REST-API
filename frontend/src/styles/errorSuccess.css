@@ -1,0 +1,23 @@
+.field-error {
+  color: #ff4d4d;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+}
+
+.field-success {
+  color: green;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+}
+
+.input-wrapper input.input-error,
+.input-wrapper textarea.input-error {
+  border: 2px solid red;
+}
+
+.input-wrapper input.input-success,
+.input-wrapper textarea.input-success {
+  border: 2px solid green;
+}

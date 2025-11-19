@@ -1,0 +1,101 @@
+.wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #1f1f1f;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-family: monospace, serif;
+}
+
+.wrapper h1 {
+  margin-bottom: 24px;
+  font-size: 28px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.input-wrapper textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.4;
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+  outline: none;
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.btn {
+  border: none;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #7209b7, #560bad, #00d4ff);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    margin: 20px;
+    padding: 24px;
+  }
+
+  .wrapper h1 {
+    font-size: 24px;
+  }
+}
+
+.error-fields {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+}

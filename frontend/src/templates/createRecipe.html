@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <h1>Create Your Recipe</h1>
+  <form class="recipe-form">
+    <div class="input-wrapper">
+      <input type="text" name="title" placeholder="Title" />
+      <p class="field-error" data-error-for="title"></p>
+      <textarea
+        type="text"
+        name="description"
+        placeholder="Description"
+      ></textarea>
+      <p class="field-error" data-error-for="description"></p>
+      <textarea
+        type="text"
+        name="ingredients"
+        placeholder="Ingredients"
+      ></textarea>
+      <p class="field-error" data-error-for="ingredients"></p>
+      <textarea
+        type="text"
+        name="instructions"
+        placeholder="Instructions"
+      ></textarea>
+      <p class="field-error" data-error-for="instructions"></p>
+
+      <input type="number" name="cookingTime" placeholder="CookingTime" />
+      <p class="field-error" data-error-for="cookingTime"></p>
+    </div>
+    <button class="btn" type="submit">Create Recipe</button>
+    <p class="field-error" data-error-for="general"></p>
+  </form>
+</div>
