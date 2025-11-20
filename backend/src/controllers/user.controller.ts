@@ -56,11 +56,9 @@ export const deleteUserController = async (req: Request, res: Response) => {
 
 export const getUserByIdController = async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
-    if (!req.userId || req.userId !== id)
-      return res.status(401).json({ message: "Unauthorized" });
+    if (!req.userId) return res.status(401).json({ message: "Unauthorized" });
 
-    const user = await getUserByIdService(parseInt(req.userId));
+    const user = await getUserByIdService(req.userId);
     if (!user) return res.status(400).json({ message: "User not found" });
     return res.status(200).json(user);
   } catch (error) {

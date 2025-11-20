@@ -24,8 +24,12 @@ export const createUserService = async (
   });
 };
 
-export const getUserByIdService = async (id: number): Promise<IUser | null> => {
-  return UserModel.findById(id).exec();
+export const getUserByIdService = async (
+  id: string
+): Promise<{ username: string; email: string } | null> => {
+  const user = await UserModel.findById(id).exec();
+  if (!user) return null;
+  return { username: user.username, email: user.email };
 };
 export const deleteUserByIdService = async (
   id: number

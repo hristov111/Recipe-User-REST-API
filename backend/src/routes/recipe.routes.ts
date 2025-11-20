@@ -3,6 +3,7 @@ import {
   getRecipeController,
   createRecipeController,
   getUserRecipesController,
+  updateRecipeController,
 } from "../controllers/recipe.controller";
 import { createRecipeValidator } from "../validations/recipe.validations";
 import { authMiddleware } from "../middleware/auth.middleware";
@@ -17,6 +18,13 @@ router.post(
   createRecipeValidator,
   validateRequest,
   createRecipeController
+);
+router.put(
+  "/:recipeId",
+  authMiddleware,
+  createRecipeValidator,
+  validateRequest,
+  updateRecipeController
 );
 router.get("/getUserRecipes", authMiddleware, getUserRecipesController);
 

@@ -5,12 +5,15 @@ import {
   clearSuccessMessage,
   handleErrorAndSuccess,
 } from "../auth/errorHandling";
+import { backButtonRecipe } from "../utils/useful.utils";
 
 export const renderCreateRecipe = (root: HTMLElement) => {
   root.innerHTML = createRecipeTemplate;
+  backButtonRecipe();
 
+  const titleRecipe = root.querySelector("#title-recipe") as HTMLHeadingElement;
+  titleRecipe.textContent = "Create Recipe";
   const form = document.querySelector(".recipe-form") as HTMLFormElement;
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     clearFieldErrors(root);

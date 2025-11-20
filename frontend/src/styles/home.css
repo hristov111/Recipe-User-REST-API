@@ -1,70 +1,183 @@
-.navbar {
+/* Home page layout */
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(31, 41, 55, 0.8), #0f172a);
+  padding: 32px clamp(16px, 4vw, 64px) 64px;
+  box-sizing: border-box;
+  color: #0f172a;
+}
+
+.home-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.home-hero {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(6px);
+  color: #fff;
 }
 
-.menu-left,
-.menu-right,
-.logo {
+.home-eyebrow {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 8px;
+}
+
+.home-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 12px;
+}
+
+.home-subtitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 480px;
+}
+
+.home-page .add-recipe {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-page .add-recipe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(124, 58, 237, 0.4);
+}
+
+.recipe-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-height: calc(100vh - 320px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.recipe,
+.recipe-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+  border: 1px solid rgba(148, 163, 184, 0.2);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
 }
 
-.logo img {
-  max-height: 50px;
+.recipe h1,
+.recipe-card h1 {
+  font-size: 1.2rem;
+  color: #0f172a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.cta-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+.recipe p,
+.recipe-card p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
-.cta-button:hover {
-  background-color: #0056b3;
+.recipe ul,
+.recipe-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #334155;
 }
 
-@media screen and (max-width: 768px) {
-  .menu-left,
-  .menu-right .cta-button {
-    display: none;
+.recipe h2,
+.recipe-card h2 {
+  margin: 0;
+  color: #2563eb;
+  font-size: 1rem;
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.recipe-actions .recipe-btn {
+  flex: 1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.recipe-actions .recipe-btn:hover {
+  transform: translateY(-2px);
+}
+
+.ghost-btn {
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+}
+
+.ghost-btn:hover {
+  box-shadow: 0 12px 22px rgba(37, 99, 235, 0.25);
+}
+
+.danger-btn {
+  border: none;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.35);
+}
+
+.danger-btn:hover {
+  box-shadow: 0 14px 28px rgba(220, 38, 38, 0.4);
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    padding: 24px;
   }
 
-  .menu-right .hamburger {
-    display: flex;
+  .home-hero {
+    padding: 24px;
   }
-}
 
-@media screen and (min-width: 768px) {
-  .mobile-menu {
-    display: none;
+  .recipe-grid {
+    max-height: none;
   }
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3 ease;
-}
-a:hover {
-  color: #ddd;
-}
-
-.navbar a:not(.cta-button) {
-  padding: 10px 15px;
-  margin: 0 5px;
-  transition: background-color 0.3s ease;
-}
-
-.navbar a:not(.cta-button):hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
 }

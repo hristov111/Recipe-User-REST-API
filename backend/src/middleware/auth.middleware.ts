@@ -33,7 +33,7 @@ export const authMiddleware = (
     if (!id) {
       return res.status(401).json({ message: "Invalid Token payload" });
     }
-
+    console.log(id);
     req.userId = id;
 
     return next();

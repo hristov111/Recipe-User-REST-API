@@ -2,12 +2,14 @@ import "./styles/login.scss";
 import "./styles/home.css";
 import "./styles/createRecipe.css";
 import "./styles/errorSuccess.css";
+import "./styles/navbar.css";
 
 import { isLoggedIn } from "./auth/authState";
 import { renderLoginPage, renderRegisterPage } from "./auth/authPages";
 import { renderHomePage } from "./pages/homePage";
 import { clearNavbar, renderNavbar } from "./pages/navPage";
 import { renderCreateRecipe } from "./pages/createRecipe";
+import { renderEditRecipeTemplate } from "./pages/editRecipe";
 const root = document.getElementById("app") as HTMLDivElement;
 const navbarRoot = document.querySelector(".navbar-wrapper") as HTMLDivElement;
 function render() {
@@ -23,7 +25,11 @@ function render() {
     renderHomePage(root);
     renderNavbar(navbarRoot);
   } else if (hash === "#createRecipe") {
+    renderNavbar(navbarRoot);
     renderCreateRecipe(root);
+  } else if (hash === "#edit") {
+    renderNavbar(navbarRoot);
+    renderEditRecipeTemplate(root);
   } else {
     location.hash = "#login";
   }

@@ -35,7 +35,7 @@ router.post(
   loginUserController
 );
 
-router.get("/:id", authMiddleware, getUserByIdController);
+router.get("/getUserById", authMiddleware, getUserByIdController);
 router.delete("/:id", authMiddleware, deleteUserController);
 router.post("/logout", logOutUserController);
 export default router;
