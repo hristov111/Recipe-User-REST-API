@@ -1,0 +1,219 @@
+.settings-page {
+  min-height: 100vh;
+  padding: 48px clamp(16px, 5vw, 80px);
+  background: radial-gradient(circle at top, rgba(37, 47, 71, 0.8), #0b1120);
+  color: #0f172a;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.settings-hero {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  color: #f8fafc;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.settings-hero h1 {
+  margin: 8px 0;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+}
+
+.settings-hero .subtitle {
+  margin: 0;
+  color: rgba(248, 250, 252, 0.8);
+  max-width: 540px;
+}
+
+.eyebrow {
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin: 0;
+  color: rgba(248, 250, 252, 0.6);
+}
+
+.settings-content {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.settings-form,
+.settings-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.settings-form h2,
+.settings-card h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.input-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.input-box input {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-box input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.password-row .password-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.password-row input {
+  flex: 1;
+}
+
+.settings-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.settings-btn.primary {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.35);
+}
+
+.settings-btn.tertiary {
+  background: #e2e8f0;
+  color: #0f172a;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: none;
+}
+
+.settings-btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(248, 250, 252, 0.5);
+  color: #f8fafc;
+}
+
+.settings-btn.danger-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(239, 68, 68, 0.35);
+}
+
+.settings-btn:hover {
+  transform: translateY(-2px);
+}
+
+.settings-card p {
+  margin: 0;
+  color: #475569;
+}
+
+.settings-card.danger {
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.toggle:last-of-type {
+  border-bottom: none;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle-track {
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.2);
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.toggle input:checked + .toggle-track {
+  background: linear-gradient(135deg, #10b981, #22d3ee);
+}
+
+.toggle input:checked + .toggle-track::after {
+  transform: translateX(20px);
+}
+
+.toggle strong {
+  color: #0f172a;
+}
+
+.toggle small {
+  color: #64748b;
+}
+
+@media (max-width: 640px) {
+  .settings-hero {
+    flex-direction: column;
+  }
+
+  .settings-btn.ghost {
+    align-self: stretch;
+    text-align: center;
+  }
+}

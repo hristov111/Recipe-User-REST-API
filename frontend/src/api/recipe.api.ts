@@ -18,12 +18,33 @@ interface IRecipe {
   cookingTime: string;
 }
 
-export const deleteRecipe = async (_id: string): Promise<ApiResponse<any>> => {
+export const deleteRecipeAPI = async (
+  _id: string
+): Promise<ApiResponse<any>> => {
   let token = getToken();
   if (!token) {
     const res = await getNewAccessToken();
     if (res.error) return res;
     token = res.data ?? getToken();
+  }
+
+  try {
+    const res = await fetch(`${API_BASE_RECIPE}/${_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      credentials: "include",
+    });
+    const json = await res.json();
+    if (!res.ok) {
+      // check token beforre returning
+      return { error: true, errors: [{ msg: json.message, path: "general" }] };
+    }
+    return { error: false, data: json.message };
+  } catch (error: any) {
+    return { error: true, errors: [{ msg: error, path: "general" }] };
   }
 };
 

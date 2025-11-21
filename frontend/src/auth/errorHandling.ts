@@ -69,6 +69,9 @@ export const clearSuccessMessage = (root: HTMLElement) => {
 };
 
 export const showSuccessMessage = (root: HTMLElement, message: string) => {
+  if (!message) {
+    return;
+  }
   const fieldSuccess = root.querySelector(
     "[data-error-for='general']"
   ) as HTMLParagraphElement;

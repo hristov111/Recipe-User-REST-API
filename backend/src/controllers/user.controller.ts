@@ -5,6 +5,7 @@ import {
   deleteUserByIdService,
   getUserByIdService,
   LoginService,
+  partiallyUpdateUserService,
 } from "../services/user.services";
 import { generateAccessToken, generateRefreshToken } from "../utils/token";
 import { ref } from "process";
@@ -111,4 +112,22 @@ export const logOutUserController = async (req: Request, res: Response) => {
     sameSite: "strict",
   });
   return res.status(200).json({ message: "Logged Out" });
+};
+
+export const partiallyUpdateUserController = async (
+  req: Request,
+  res: Response
+) => {
+  const updates = req.body;
+
+  try {
+    const result = await partiallyUpdateUserService(updates, req.userId!);
+    if (!result)
+      return res
+        .status(400)
+        .json({ message: "Username or email already exitsts!" });
+    return res.status(200).json({ message: "Successfully updated record" });
+  } catch (error) {
+    return res.status(500).json({ message: `Internal Server Error: ${error}` });
+  }
 };

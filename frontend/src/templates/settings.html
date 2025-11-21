@@ -1,0 +1,80 @@
+<div class="settings-page">
+  <section class="settings-hero">
+    <div>
+      <p class="eyebrow">Account preferences</p>
+      <h1>Settings</h1>
+      <p class="subtitle">
+        Update your profile, manage notifications, and keep your account secure.
+      </p>
+    </div>
+    <button class="settings-btn ghost">Download data</button>
+  </section>
+
+  <div class="settings-content">
+    <form class="settings-form">
+      <h2>Profile</h2>
+      <div class="input-grid">
+        <label class="input-box">
+          <span>Username</span>
+          <input type="text" name="username" placeholder="Chef Supremo" />
+          <p class="field-error" data-error-for="username"></p>
+        </label>
+        <label class="input-box">
+          <span>Email address</span>
+          <input type="email" name="email" placeholder="chef@recipe.dev" />
+          <p class="field-error" data-error-for="username"></p>
+        </label>
+      </div>
+      <label class="input-box password-row">
+        <span>New password</span>
+        <div class="password-input">
+          <input
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            aria-label="New password"
+          />
+          <button
+            type="button"
+            class="settings-btn tertiary password-toggle"
+            aria-pressed="false"
+          >
+            Show
+          </button>
+        </div>
+        <p class="field-error" data-error-for="password"></p>
+      </label>
+      <button type="submit" class="settings-btn primary">Save changes</button>
+    </form>
+
+    <section class="settings-card">
+      <h2>Notifications</h2>
+      <p>Choose what you want to hear about.</p>
+      <label class="toggle">
+        <input type="checkbox" checked />
+        <span class="toggle-track"></span>
+        <div>
+          <strong>New recipe approvals</strong>
+          <small>Get notified when your submission is published.</small>
+        </div>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" />
+        <span class="toggle-track"></span>
+        <div>
+          <strong>Weekly inspiration</strong>
+          <small>Hand-picked ideas delivered every Monday.</small>
+        </div>
+      </label>
+    </section>
+
+    <section class="settings-card danger">
+      <h2>Danger zone</h2>
+      <p>Permanently delete your account and all saved recipes.</p>
+      <button class="settings-btn danger-btn" type="button">
+        Delete account
+      </button>
+    </section>
+  </div>
+  <p class="field-error" data-error-for="general"></p>
+</div>

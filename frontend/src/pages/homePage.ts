@@ -1,4 +1,4 @@
-import { getUserRecipes } from "../api/recipe.api";
+import { deleteRecipeAPI, getUserRecipes } from "../api/recipe.api";
 import { getUserById } from "../api/user.api";
 import { handleErrorAndSuccess, type ApiSuccess } from "../auth/errorHandling";
 import homeTemplate from "../templates/home.html?raw";
@@ -48,6 +48,10 @@ export const renderHomePage = async (root: HTMLElement) => {
       e.preventDefault();
       editRecipe(recipe);
     });
+    deleteButton.addEventListener("click", async (e) => {
+      e.preventDefault();
+      await deleteRecipe(recipe._id, root);
+    });
   });
 
   recipesWrapper?.appendChild(frag);
@@ -81,7 +85,13 @@ const createRecipeCard = ({
   return card;
 };
 
-const deleteRecipe = () => {};
+const deleteRecipe = async (recipeId: string, root: HTMLElement) => {
+  const res = await deleteRecipeAPI(recipeId);
+  handleErrorAndSuccess(res, root);
+  if (!res.error) {
+    location.reload();
+  }
+};
 
 const editRecipe = (recipe: Recipe) => {
   console.log(recipe);

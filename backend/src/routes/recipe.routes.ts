@@ -4,6 +4,7 @@ import {
   createRecipeController,
   getUserRecipesController,
   updateRecipeController,
+  deleteUserRecipeController,
 } from "../controllers/recipe.controller";
 import { createRecipeValidator } from "../validations/recipe.validations";
 import { authMiddleware } from "../middleware/auth.middleware";
@@ -19,6 +20,8 @@ router.post(
   validateRequest,
   createRecipeController
 );
+
+router.delete("/:recipeId", authMiddleware, deleteUserRecipeController);
 router.put(
   "/:recipeId",
   authMiddleware,

@@ -6,6 +6,7 @@ import {
   deleteUserController,
   loginUserController,
   logOutUserController,
+  partiallyUpdateUserController,
 } from "../controllers/user.controller";
 import { authMiddleware } from "../middleware/auth.middleware";
 import {
@@ -34,6 +35,8 @@ router.post(
   validateRequest,
   loginUserController
 );
+
+router.patch("/patchUser", authMiddleware, partiallyUpdateUserController);
 
 router.get("/getUserById", authMiddleware, getUserByIdController);
 router.delete("/:id", authMiddleware, deleteUserController);

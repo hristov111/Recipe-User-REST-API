@@ -47,3 +47,38 @@ export const LoginService = async (data: {
   if (!isMatch) return null;
   return user;
 };
+
+export const partiallyUpdateUserService = async (
+  data: any,
+  userId: string
+): Promise<IUser | null> => {
+  const updates: Partial<IUser> = {};
+  if (typeof data.username === "string") {
+    const user = await UserModel.exists({
+      username: data.username,
+      _id: { $ne: userId },
+    });
+    if (user) return null;
+    updates.username = data.username;
+  }
+  if (typeof data.email === "string") {
+    const user = await UserModel.exists({
+      email: data.email,
+      _id: { $ne: userId },
+    });
+    if (user) return null;
+    updates.email = data.email;
+  }
+  if (typeof data.password === "string") {
+    updates.password = await bcrypt.hash(data.password, 10);
+  }
+  if (!Object.keys(updates).length) {
+    return null;
+  }
+
+  return UserModel.findByIdAndUpdate(
+    userId,
+    { $set: updates },
+    { new: true, runValidators: true }
+  ).exec();
+};
