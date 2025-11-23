@@ -63,7 +63,7 @@ export const renderSettingsPage = async (root: HTMLElement) => {
         // make patch request
         const res = await userPATCH(changedFields);
         handleErrorAndSuccess(res, root);
-        // location.reload();
+        location.reload();
       } else {
         return;
       }
